@@ -19,7 +19,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	nss-devel
 BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
-Requires:	libpurple-sipe = %{version}-%{release}
+Requires:	libpurple-protocol-sipe = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,12 +37,12 @@ Communicator client with Pidgin.
 
 This package provides the icon set for Pidgin.
 
-%package -n libpurple-sipe
+%package -n libpurple-protocol-sipe
 Summary:	Libpurple protocol plugin to connect to MS Office Communicator
 License:	GPL v2+
 Group:		Applications/Networking
 
-%description -n libpurple-sipe
+%description -n libpurple-protocol-sipe
 A third-party plugin for the Pidgin multi-protocol instant messenger.
 It implements the extended version of SIP/SIMPLE used by various
 products:
@@ -76,7 +76,7 @@ find $RPM_BUILD_ROOT -type f -name "*.la" -delete -print
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -n libpurple-sipe -f %{name}.lang
+%files -n libpurple-protocol-sipe -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %{_libdir}/purple-2/libsipe.so
