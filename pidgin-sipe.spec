@@ -1,12 +1,12 @@
 Summary:	Pidgin protocol plugin to connect to MS Office Communicator
 Name:		pidgin-sipe
-Version:	1.17.0
+Version:	1.19.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/Networking
 URL:		http://sipe.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/sipe/%{name}-%{version}.tar.bz2
-# Source0-md5:	c8eb8e133ffa5b65582be7cc8904d1a5
+Source0:	http://downloads.sourceforge.net/sipe/%{name}-%{version}.tar.xz
+# Source0-md5:	f93354fcb147f22a8bf40aaf77caae62
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	gettext
 BuildRequires:	glib2-devel >= 2.28.0
