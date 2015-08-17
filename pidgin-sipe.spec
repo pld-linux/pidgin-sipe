@@ -18,6 +18,8 @@ BuildRequires:	libpurple-devel >= 2.8.0
 BuildRequires:	libxml2-devel
 BuildRequires:	nss-devel
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 BuildRequires:	zlib-devel
 Requires:	libpurple-protocol-sipe = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
