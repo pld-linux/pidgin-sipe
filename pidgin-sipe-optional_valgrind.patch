@@ -1,0 +1,22 @@
+--- configure.ac.old	2016-03-20 13:38:49.457598656 +0100
++++ configure.ac	2016-03-20 13:45:37.131251599 +0100
+@@ -153,9 +153,16 @@
+ PKG_PROG_PKG_CONFIG
+ 
+ dnl check for valgrind (optional, only needed for debugging)
+-PKG_CHECK_MODULES(VALGRIND, [valgrind],
+-	[AC_DEFINE(HAVE_VALGRIND, 1, [Define to 1 if you have the valgrind headers])],
+-	[AC_MSG_RESULT(no)])
++AC_ARG_ENABLE(valgrind,
++	[AS_HELP_STRING([--enable-valgrind],
++                        [turn on valgrind support for debugging @<:@default=no@:>@])],
++	[],
++	[enable_valgrind=no])
++AS_IF([test "x$enable_valgrind" != xno],
++	[PKG_CHECK_MODULES(VALGRIND, [valgrind],
++		[AC_DEFINE(HAVE_VALGRIND, 1, [Define to 1 if you have the valgrind headers])],
++		[AC_MSG_RESULT(no)])],
++	[])
+ 
+ dnl build option: with voice & video support (for all backends)
+ AC_ARG_WITH(vv,

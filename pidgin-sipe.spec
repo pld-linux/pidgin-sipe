@@ -7,14 +7,19 @@ Group:		Applications/Networking
 URL:		http://sipe.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/sipe/%{name}-%{version}.tar.xz
 # Source0-md5:	35584b53b67a19e9f0e4ab44604f908f
+Patch0:		%{name}-optional_valgrind.patch
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	gettext
 BuildRequires:	glib2-devel >= 2.28.0
+BuildRequires:	gmime-devel
 BuildRequires:	gstreamer-devel
 BuildRequires:	heimdal-devel
-BuildRequires:	intltool
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libnice-devel >= 0.1.0
 BuildRequires:	libpurple-devel >= 2.8.0
+BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	nss-devel
 BuildRequires:	pkgconfig
@@ -58,8 +63,14 @@ This package provides the protocol plugin for libpurple clients.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-krb5 \
 	--enable-purple \
