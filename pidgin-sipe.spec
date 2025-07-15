@@ -63,7 +63,7 @@ This package provides the protocol plugin for libpurple clients.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %{__libtoolize}
